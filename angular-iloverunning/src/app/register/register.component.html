@@ -5,7 +5,10 @@
     <label for="firstName" class="col-2 col-form-label">First Name</label>
     <div class="col">
       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required
-        [(ngModel)]="model.firstName">
+        [(ngModel)]="model.firstName" #fn="ngModel">
+      <div [hidden]="fn.valid || fn.pristine" class="alert alert-danger">
+        First Name is required
+      </div>
     </div>
   </div>
 
@@ -14,7 +17,10 @@
     <label for="lastName" class="col-2 col-form-label">Last Name</label>
     <div class="col">
       <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required
-        [(ngModel)]='model.lastName'>
+        [(ngModel)]='model.lastName' #ln="ngModel">
+      <div [hidden]="ln.valid || ln.pristine" class="alert alert-danger">
+        Last Name is required
+      </div>
     </div>
   </div>
 
@@ -22,9 +28,11 @@
   <div class="form-group row">
     <label for="email" class="col-2 col-form-label">Email</label>
     <div class="col">
-      <input type="email" class="form-control" id="email" name="email" 
-      placeholder="Email" required
-      [(ngModel)]="model.email">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required
+        [(ngModel)]="model.email" #email="ngModel">
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+          Email Name is required
+        </div>
     </div>
   </div>
 
@@ -32,9 +40,8 @@
   <div class="form-group row">
     <label for="zipCode" class="col-2 col-form-label">Zip Code</label>
     <div class="col">
-      <input type="text" class="form-control" id="zipCode" name="zipCode"
-       placeholder="Zip Code"
-       [(ngModel)]="model.zipCode">
+      <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip Code"
+        [(ngModel)]="model.zipCode">
     </div>
   </div>
 
@@ -42,9 +49,8 @@
   <div class="form-group row">
     <label for="password1" class="col-2 col-form-label">Password</label>
     <div class="col">
-      <input type="password" class="form-control" id="password1" 
-      name="password1" placeholder="Password" required
-      [(ngModel)]="model.password1">
+      <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" required
+        [(ngModel)]="model.password1">
     </div>
   </div>
 
@@ -53,9 +59,8 @@
     <label for="password2" class="col-2 col-form-label">Confirm Password</label>
     <div class="col">
       <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password"
-        required
-        [(ngModel)]="model.password2">
-      <div [hidden]="false" class="alert alert-danger">
+        required [(ngModel)]="model.password2" #pwd="ngModel">
+      <div [hidden]="checkPassword()" class="alert alert-danger">
         Passwords do not match
       </div>
     </div>
