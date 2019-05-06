@@ -1,58 +1,70 @@
-<h3>New User</h3>
-<form>
+<h2>New User</h2>
+<form #signupForm="ngForm" (ngSubmit)="onSubmit()">
   <!-- First Name -->
   <div class="form-group row">
-    <label for="firstName" class="col-3 col-form-label">First Name</label>
+    <label for="firstName" class="col-2 col-form-label">First Name</label>
     <div class="col">
-      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required
+        [(ngModel)]="model.firstName">
     </div>
   </div>
 
   <!-- Last Name -->
   <div class="form-group row">
-    <label for="lastName" class="col-3 col-form-label">Last Name</label>
+    <label for="lastName" class="col-2 col-form-label">Last Name</label>
     <div class="col">
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required
+        [(ngModel)]='model.lastName'>
     </div>
   </div>
 
   <!-- Email -->
   <div class="form-group row">
-    <label for="lastName" class="col-3 col-form-label">Last Name</label>
+    <label for="email" class="col-2 col-form-label">Email</label>
     <div class="col">
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+      <input type="email" class="form-control" id="email" name="email" 
+      placeholder="Email" required
+      [(ngModel)]="model.email">
     </div>
   </div>
 
   <!-- Zip Code -->
   <div class="form-group row">
-    <label for="lastName" class="col-3 col-form-label">Last Name</label>
+    <label for="zipCode" class="col-2 col-form-label">Zip Code</label>
     <div class="col">
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+      <input type="text" class="form-control" id="zipCode" name="zipCode"
+       placeholder="Zip Code"
+       [(ngModel)]="model.zipCode">
     </div>
   </div>
 
   <!-- Password -->
   <div class="form-group row">
-    <label for="lastName" class="col-3 col-form-label">Last Name</label>
+    <label for="password1" class="col-2 col-form-label">Password</label>
     <div class="col">
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+      <input type="password" class="form-control" id="password1" 
+      name="password1" placeholder="Password" required
+      [(ngModel)]="model.password1">
     </div>
   </div>
 
   <!-- Confirm Password -->
   <div class="form-group row">
-    <label for="lastName" class="col-3 col-form-label">Last Name</label>
+    <label for="password2" class="col-2 col-form-label">Confirm Password</label>
     <div class="col">
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+      <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password"
+        required
+        [(ngModel)]="model.password2">
+      <div [hidden]="false" class="alert alert-danger">
+        Passwords do not match
+      </div>
     </div>
   </div>
 
   <!-- Submit -->
   <div class="form-group row">
     <div class="col">
-      <button type="submit" class="btn btn-primary"
-        [disabled]="!checkPassword() || !signupForm.form.valid">Register</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!signupForm.form.valid">Register</button>
     </div>
   </div>
 </form>
