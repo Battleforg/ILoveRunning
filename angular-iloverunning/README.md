@@ -1,6 +1,7 @@
 # AngularIloverunning
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Inspired by Arseniy Tomkevich's blog: https://levelup.gitconnected.com/simple-application-with-angular-6-node-js-express-2873304fff0f
 
 ## Development server
 
