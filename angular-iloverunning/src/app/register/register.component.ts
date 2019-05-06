@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../entities/user';
+import { UserModel } from '../models/userModel';
 
 @Component({
   selector: 'app-register',
@@ -26,12 +26,13 @@ export class RegisterComponent {
 
   // submit new user's information
   onSubmit(): void {
-    const newUser = new User(
+    const newUser = new UserModel(
       this.model.firstName,
       this.model.lastName,
       this.model.email,
       this.model.password1,
-      this.model.zipCode);
+      this.model.zipCode
+    );
     // TODO: upload this user
     console.log(newUser);
   }
