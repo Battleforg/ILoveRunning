@@ -1,4 +1,4 @@
-const CustomerModel = require('../models/model.customer');
+const CustomerModel = require('../models/customer.model');
 let Vadlidator = require('fastest-validator');
 
 let customers = {};
@@ -48,15 +48,28 @@ class CustomerService {
   }
 
   static retrieve(uid) {
-
+    if (customers[uid] !== null) {
+      return customers[uid];
+    } else {
+      throw new Error('Unable to retrieve a customer by (uid:' + uid + ')');
+    }
   }
 
   static update(uid, data) {
-
+    if (customers[uid] !== null) {
+      const customer = customers[uid];
+      Object.assign(customer, data);
+    } else {
+      throw new Error('Unable to retrieve a customer by (uid:' + uid + ')');
+    }
   }
 
   static delete(uid) {
-
+    if (customers[uid] !== null) {
+      delete customers[uid];
+    } else {
+      throw new Error('Unable to retrieve a customer by (uid:' + uid + ')');
+    }
   }
 }
 

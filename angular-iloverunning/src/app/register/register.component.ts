@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { UserModel } from '../models/userModel';
 
 @Component({
@@ -36,6 +38,5 @@ export class RegisterComponent {
     // TODO: upload this user
     console.log(newUser);
   }
-
 
 }
