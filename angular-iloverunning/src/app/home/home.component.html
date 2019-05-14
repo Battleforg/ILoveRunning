@@ -1,27 +1,51 @@
 <legend>User Information</legend>
 <div>
+  <!-- GUID -->
+  <div class="row">
+    <div class="col-4">GUID</div>
+    <div class="col">{{ user.guid }}</div>
+  </div>
+
+  <!-- Customer UID -->
+  <div class="row">
+    <div class="col-4">Customer UID</div>
+    <div class="col">{{ user.uid }}</div>
+  </div>
+
   <!-- First Name -->
   <div class="row">
-    <div class="col-3">First Name</div>
+    <div class="col-4">First Name</div>
     <div class="col">{{ user.firstName }}</div>
   </div>
 
   <!-- Last Name -->
   <div class="row">
-    <div class="col-3">last Name</div>
+    <div class="col-4">last Name</div>
     <div class="col">{{ user.lastName }}</div>
   </div>
 
   <!-- Email -->
   <div class="row">
-    <div class="col-3">Email</div>
+    <div class="col-4">Email</div>
     <div class="col">{{ user.email }}</div>
   </div>
 
   <!-- Zip Code -->
   <div class="row">
-    <div class="col-3">Zip Code</div>
+    <div class="col-4">Zip Code</div>
     <div class="col">{{ user.zipCode }}</div>
+  </div>
+
+  <!-- Password -->
+  <div class="row">
+    <div class="col-4">Password</div>
+    <div class="col">{{ user.password }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-success btn-primary" (click)="goBack()">Go Back</button>
+    </div>
   </div>
 
 </div>

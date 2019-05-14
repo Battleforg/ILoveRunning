@@ -2,10 +2,10 @@
 <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
   <!-- First Name -->
   <div class="form-group row">
-    <label for="firstName" class="col-2 col-form-label">First Name</label>
+    <label for="firstName" class="col-3 col-form-label">First Name</label>
     <div class="col">
       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required
-        [(ngModel)]="model.firstName" #fn="ngModel">
+        [(ngModel)]="model.firstName" #fn="ngModel" maxlength="50">
       <div [hidden]="fn.valid || fn.pristine" class="alert alert-danger">
         First Name is required
       </div>
@@ -14,10 +14,10 @@
 
   <!-- Last Name -->
   <div class="form-group row">
-    <label for="lastName" class="col-2 col-form-label">Last Name</label>
+    <label for="lastName" class="col-3 col-form-label">Last Name</label>
     <div class="col">
       <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required
-        [(ngModel)]='model.lastName' #ln="ngModel">
+        [(ngModel)]='model.lastName' #ln="ngModel" maxlength="50">
       <div [hidden]="ln.valid || ln.pristine" class="alert alert-danger">
         Last Name is required
       </div>
@@ -26,19 +26,19 @@
 
   <!-- Email -->
   <div class="form-group row">
-    <label for="email" class="col-2 col-form-label">Email</label>
+    <label for="email" class="col-3 col-form-label">Email</label>
     <div class="col">
       <input type="email" class="form-control" id="email" name="email" placeholder="Email" required
-        [(ngModel)]="model.email" #email="ngModel">
-        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-          Email Name is required
-        </div>
+        [(ngModel)]="model.email" #email="ngModel" maxlength="75">
+      <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+        Email Name is required
+      </div>
     </div>
   </div>
 
   <!-- Zip Code -->
   <div class="form-group row">
-    <label for="zipCode" class="col-2 col-form-label">Zip Code</label>
+    <label for="zipCode" class="col-3 col-form-label">Zip Code</label>
     <div class="col">
       <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="Zip Code"
         [(ngModel)]="model.zipCode">
@@ -47,19 +47,22 @@
 
   <!-- Password -->
   <div class="form-group row">
-    <label for="password1" class="col-2 col-form-label">Password</label>
+    <label for="password1" class="col-3 col-form-label">Password</label>
     <div class="col">
-      <input type="password" class="form-control" id="password1" name="password1" placeholder="Password" required
-        [(ngModel)]="model.password1">
+      <input type="password" class="form-control" id="password1" name="password1" placeholder="Password needs at least 5 characters" 
+      required [(ngModel)]="model.password1" minlength="5">
+      <div [hidden]="!invalidPassword()" class="alert alert-danger">
+        Use at least one number and one alphabetic character
+      </div>
     </div>
   </div>
 
   <!-- Confirm Password -->
   <div class="form-group row">
-    <label for="password2" class="col-2 col-form-label">Confirm Password</label>
+    <label for="password2" class="col-3 col-form-label">Confirm Password</label>
     <div class="col">
       <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm Password"
-        required [(ngModel)]="model.password2" #pwd="ngModel">
+        required [(ngModel)]="model.password2">
       <div [hidden]="checkPassword()" class="alert alert-danger">
         Passwords do not match
       </div>

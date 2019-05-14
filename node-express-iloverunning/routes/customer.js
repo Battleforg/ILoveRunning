@@ -22,8 +22,8 @@ router.post('/', async (req, res, next) => {
     return res.status(201).json({ customer: customer });
 
   } catch (error) {
-    if (err.name === 'ValidationError') {
-      return res.status(400).json({ error: err.message });
+    if (error.name === 'ValidationError') {
+      return res.status(400).json({ error: error.message });
     }
     // unexpected error
     return next(err);

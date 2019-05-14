@@ -8,8 +8,8 @@ let counter = 0;
 let customerValidator = new Vadlidator();
 
 // validation pattern
-let namePattern = /([A-Za-z\-\'])*/;
-let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z]+$/;
+let namePattern = /([A-Za-z\-\'])+/;
+let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$/;
 
 // customer validator schema
 const customerVSchema = {
@@ -29,8 +29,8 @@ class CustomerService {
     // validation failed
     if (!(vres === true)) {
       let errors = {};
-      for (let index = 0; index < array.length; index++) {
-        const element = array[index];
+      for (let index = 0; index < vres.length; index++) {
+        const element = vres[index];
         errors[element.field] = element.message;
       }
       throw {
