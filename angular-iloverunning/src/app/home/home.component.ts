@@ -46,7 +46,7 @@ export class HomeComponent implements OnDestroy, OnInit {
   }
 
   goBack() {
-    console.log('back to register');
+    console.log('go back');
     this.router.navigate(['']);
   }
 
